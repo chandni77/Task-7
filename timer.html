@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+    body {
+        background-color: #5CDB95;
+    }
+
+    .container {
+        border: 3px solid black;
+        background-color: #2b7ed1;
+        display: inline-flex;
+        justify-content: center;
+        margin: 8% 35%;
+        width: 30%;
+        box-shadow: 10px 10px #05386B;
+    }
+
+    #countdown {
+        font-size: 3vw;
+    }
+
+    .text {
+        font-size: 5vw;
+        color: white;
+        margin: 3% 43%;
+    }
+</style>
+
+<body>
+    <div class="text">Timer</div>
+    <div class="container">
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        const startmin = 1;
+        let time = startmin * 60;
+
+        const countdownele = document.getElementById('countdown');
+
+        setInterval(updateCountdown, 1000);
+
+        function updateCountdown() {
+            const min = Math.floor(time / 60);
+            let sec = time % 60;
+
+            sec = sec < 10 ? '0' + sec : sec;
+
+            countdownele.innerHTML = `${min}:${sec}`;
+            time--;
+            time = time < 0 ? 0 : time;
+        }
+
+        function greet() {
+            alert("Time Up!!")
+        }
+        timeOut = setTimeout(greet, 62000);
+        console.log(timeOut);
+    </script>
+</body>
+
+</html>
